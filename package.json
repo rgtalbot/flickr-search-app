@@ -1,0 +1,28 @@
+{
+  "name": "flickr-search-app",
+  "version": "0.0.1",
+  "description": "one page app using flickr photos search API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgtalbot/flickr-search-app.git"
+  },
+  "keywords": [
+    "flickr",
+    "API",
+    "AJAJ"
+  ],
+  "author": "Ryan Talbot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rgtalbot/flickr-search-app/issues"
+  },
+  "homepage": "https://github.com/rgtalbot/flickr-search-app#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}

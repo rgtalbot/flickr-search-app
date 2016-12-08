@@ -5,48 +5,59 @@ var request = require('request');
 var router = express.Router();
 
 
-//HOMEPAGE
+/**
+ * Express router to return the home.html view when the page is loaded
+ */
 router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './../public/home.html'));
 });
 
 
-//GET
+/**
+ * Express router that hits the flickr api.
+ * req.params.q is the search query passed from the front end.
+ */
 router.get('/api/images/:q', function (req, res) {
-    console.log(req.params.q);
 
-    //Base string for Flickr API Search
-    var queryString = "https://api.flickr.com/services/rest?";
-    //Defining the method to use flickr.photos.search
-    queryString += "&method=flickr.photos.search";
-    //My API Key from Flickr
-    queryString += "&api_key=a3142a0a67e082a83174aa868efedaef";
-    //Adds the search from the search bar as the tags for the query
-    queryString += "&tags=" + req.params.q;
-    //Formats the response to JSON
-    queryString += "&format=json";
-    //Removes the callbackfucntion from the response
-    queryString += "&nojsoncallback=1";
-    //Limit the search return to 25 per page
-    queryString += "&per_page=25";
-    //Set safe search to 1 for safe
-    queryString += "&safe_search=1";
-    request(queryString, function (err, body, response) {
+    //Build out the query for the API request with all the parts in an array.
+    var queryString = [
+        //Base string for Flickr API Search
+        "https://api.flickr.com/services/rest?",
+
+        //Defining the method to use flickr.photos.search
+        "method=flickr.photos.search",
+
+        //My API Key from Flickr
+        "api_key=a3142a0a67e082a83174aa868efedaef",
+
+        //Adds the search from the search bar as the text for the query
+        "text=" + req.params.q,
+
+        //Formats the response to JSON
+        "format=json",
+
+        //Removes the callbackfucntion from the response
+        "nojsoncallback=1",
+
+        //Limit the search return to 25 per page
+        "per_page=25",
+
+        //Set safe search to 1 for safe
+        "safe_search=1"
+    ];
+
+
+    /**
+     *Join the array on the & and run the request query.
+     * Parse the response given back and send that as the return from this get call.
+     */
+    request(queryString.join('&'), function (err, body, response) {
         if (err)
             console.log(err);
         var results = JSON.parse(response);
         res.send(results);
     });
 });
-
-//SEND
-// router.post('/api/images', function(req, res) {
-//
-// });
-//
-// router.delete('/api/images', function(req, res) {
-//
-// });
 
 
 module.exports = router;

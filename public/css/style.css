@@ -2,6 +2,9 @@
     height: 100%;
 }
 
-.searchResults {
-    margin-top: 100px;
+#imgDiv img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 400px;
 }

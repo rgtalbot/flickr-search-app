@@ -34,7 +34,6 @@ describe('Successful Flickr API Response', function () {
             if (err)
                 console.log(err);
             var results = JSON.parse(res);
-            // console.log(results.photos.photo[0]);
             expect(results.photos.photo[0]).to.be.a('object');
             done();
 

@@ -42,4 +42,13 @@ describe('Successful Flickr API Response', function () {
     })
 });
 
+describe('Construct search term', function() {
+   it('should return lowercase words seperated by "+"', function(done) {
+      var testString = "Use tHis SeArch TeRm";
+      var compareString = testString.toLowerCase().split(' ');
+      compareString = compareString.join('+');
+      expect(compareString).to.equal("use+this+search+term");
+      done();
+   });
+});
 

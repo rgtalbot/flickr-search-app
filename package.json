@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/rgtalbot/flickr-search-app#readme",
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "clear": "^0.0.1",
     "express": "^4.14.0"

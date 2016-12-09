@@ -13,7 +13,7 @@ clear();
 describe("Successful Flickr API call", function () {
 
     it('should return 200', function(done) {
-        request("https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=a3142a0a67e082a83174aa868efedaef&tags=monkey&format=json&per_page=25", function (err, body, res) {
+        request("https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=a3142a0a67e082a83174aa868efedaef&tags=monkey&format=json&per_page=25&nojsoncallback=1&safe_search=1", function (err, body, res) {
             if (err)
                 console.log(err);
 
@@ -30,7 +30,7 @@ describe("Successful Flickr API call", function () {
 describe('Successful Flickr API Response', function () {
 
     it('should return a JSON object', function(done) {
-        request("https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=a3142a0a67e082a83174aa868efedaef&tags=monkey&format=json&jsoncallback=?&per_page=25&nojsoncallback=1", function (err, body, res) {
+        request("https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=a3142a0a67e082a83174aa868efedaef&tags=monkey&format=json&per_page=25&nojsoncallback=1&safe_search=1", function (err, body, res) {
             if (err)
                 console.log(err);
             var results = JSON.parse(res);

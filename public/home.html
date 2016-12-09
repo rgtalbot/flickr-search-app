@@ -29,16 +29,16 @@
 
 <div class="wrapper">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <h1>Flickr Photo Search API</h1>
+                <span class="brand">Flickr Photo Search API</span>
             </div>
-            <form class="navbar-form navbar-left" onsubmit=searchApi(event)>
+            <form class="navbar-form navbar-right" onsubmit=searchApi(event)>
                 <div class="form-group">
                     <input type="text" id="search-input" class="form-control" placeholder="Search for ..."/>
                 </div>
-                <button type="submit" class="btn btn-success">Search</button>
+                <button type="submit" class="btn searchBtn">Search</button>
             </form>
         </div>
     </nav>

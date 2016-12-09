@@ -51,7 +51,8 @@ function displayPhotos(arr) {
         var row = $('<div>')
             .addClass('row text-center');
         var img = $('<img>')
-            .attr('src', imgUrl);
+            .attr('src', imgUrl)
+            .attr('alt', arr[i].title);
         img.appendTo(row);
         row.appendTo(imgDiv);
         resizePhotos();
@@ -69,5 +70,5 @@ $(window).resize(function () {
  * Function to set the css height of the image to the window height.
  */
 function resizePhotos() {
-    $('.imgDiv img').css('height', $(window).height() + "px");
+    $('.imgDiv img').css('height', ($(window).height() - 70) + "px");
 }
